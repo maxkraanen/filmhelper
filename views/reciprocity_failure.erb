@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reciprocity Failure</title>
+  <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+  <link href="stylesheets/reciprocity_failure.css" rel="stylesheet" type="text/css"/>
+  <link href="stylesheets/background.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+
+  <div><a href="/"><img src="../images/back-arrow.png" alt="" class="home-link"></a></div>
+  <div class="form-background">
+    <form class="city-form">
+      <p>
+       <select class= "city-input" id="dropdown-film" name="filmtype">
+       <option value="" disabled selected>&#9660; Select your film</option>
+        <option value = "Kodak Portra 160/400">Kodak Portra 160/400</option>
+        <option value = "Ilford HP5+/FP4+/Delta400/3200">Ilford HP5+/FP4+/Delta400/3200</option>
+        <option value = "Fuji Velvia 100">Fuji Velvia 100F</option>
+        <option value = "4">four</option>
+      </select>
+    </p>
+    <!-- <input type="text" name="filmtype" placeholder="Please select your film" class="city-input"> -->
+    <input type="text" name="time" placeholder="What's your exposure time?" class="city-input" id="film-speed-box">
+    <input type="submit" class="btn-city">
+  </form>
+</div>
+
+
+<div class="reciprocity-wrapper">
+  <% unless @reciprocity.reciprocity_correction.nil? %>
+
+  <div class="reciprocity-result-box" id="reciprocity-results-1">
+    <h2>Your filmtype is <%= @reciprocity.filmtype %>.</h2>
+  </div>
+
+  <div class="reciprocity-result-box" id="reciprocity-results-2">
+    <% if @reciprocity.time <= 1 %>
+    <h2>Your measured exposure time is <%= @reciprocity.time %> second.</h2>
+    <% else %>
+    <h2>Your measured exposure time is <%= @reciprocity.time %> seconds.</h2>
+    <% end %>
+  </div>
+
+  <div class="reciprocity-result-box" id="reciprocity-results-3">
+    <h2>Your correct exposure time is <%= @reciprocity.reciprocity_correction%> seconds.</h2>
+  </div>
+
+  <div id="white-box"></div>
+
+
+    <!-- <div class="reciprocity-results">
+
+      <div>
+        <h2>Your filmtype is <%= @reciprocity.filmtype %>.</h2>
+      </div>
+      <div>
+        <h2>Your measured exposure time is <%= @reciprocity.time %> seconds.</h2>
+      </div>
+      <div>
+        <h2>Your correct exposure time is <%= @reciprocity.reciprocity_correction%> seconds.</h2>
+      </div>
+
+    </div> -->
+    <% end %>
+  </div>
+</body>
+</html>

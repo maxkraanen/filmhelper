@@ -3,15 +3,18 @@ require 'open-uri'
 require 'json'
 
 class Api
-  def searcher(tag)
-    api_url = "http://api.giphy.com/v1/gifs/search?q=#{tag}&api_key=dc6zaTOxFJmzC"
-    open(api_url) do |stream|
-      response = JSON.parse(stream.read)
-      if response["data"] != []
-        result = response["data"].sample["images"]["fixed_height"]["url"]
-      else
-        result = 'http://media1.giphy.com/media/F9AU77Krzw8ta/200.gif'
-      end
-    end
+  def searcher(api_url)
+    serialized_weather = open(api_url).read
+    weather = JSON.parse(serialized_weather)
+    weather
   end
+
 end
+
+# google_api_key = AIzaSyCxr4Ol5qHxmBWdf_mx0vT5g8MkFI1Tjkk
+
+
+# 9f540e1940bd34431a9801e570826e54
+
+# api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9f540e1940bd34431a9801e570826e54
+

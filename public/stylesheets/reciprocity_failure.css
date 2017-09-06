@@ -1,0 +1,125 @@
+
+.reciprocity-wrapper{
+  min-height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00343f;
+  margin-top: -17px;
+  flex-direction: column; /* remove for display without blocks */
+}
+
+
+.reciprocity-results{
+  z-index: 1;
+  padding: 50px;
+  /*border: 1px solid white;*/
+  position: relative;
+  box-shadow:
+  0 0 0 1px #fff,
+  0 0 0 5px #00343f,
+  0 0 0 6px #fff,
+  0 0 0 24px #00343f,
+  0 0 0 25px #fff,
+  0 0 0 36px #00343f,
+  0 0 0 37px #fff,
+  0 0 0 48px #00343f,
+  /* 0 0 0 49px #fff,*/
+  0 0 0 60px #00343f,
+  /*0 0 0 61px #fff,*/
+  0 0 0 72px #00343f,
+  /* 0 0 0 73px #fff,*/
+  0 0 0 84px #00343f,
+  0 0 0 85px #fff,
+ /* 0 0 0 96px #00343f,
+  0 0 0 97px #fff,
+  0 0 0 108px #00343f,
+  0 0 0 109px #fff,*/
+  0 0 0 120px #00343f,
+  0 0 0 121px #fff,
+  0 0 0 132px #00343f,
+  /*0 0 0 133px #fff,
+  0 0 0 144px #00343f,
+  0 0 0 145px #fff,*/
+  0 0 0 156px #00343f,
+  0 0 0 157px #fff,
+  0 0 0 168px #00343f,
+  0 0 0 169px #fff,
+  0 0 0 175px #00343f,
+  0 0 0 176px #fff;
+  /*0 0 0 192px #00343f,
+  0 0 0 193px #fff,
+  0 0 0 204px #00343f,
+  0 0 0 205px #fff;*/
+  /*0 0 0 216px #00343f,
+  0 0 0 217px #fff,
+  0 0 0 228px #00343f,
+  0 0 0 229px #fff,
+  0 0 0 240px #00343f,
+  0 0 0 241px #fff;*/
+}
+
+
+.reciprocity-results h2{
+  font-size: 40px;
+  color: white;
+}
+
+#dropdown-film{
+  -webkit-appearance: none;
+  background: white;
+  color: gray;
+}
+
+
+.reciprocity-result-box {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: 1px solid white;
+ padding-left: 20px;
+}
+
+.reciprocity-result-box h2{
+ font-size: 30px;
+ color: white;
+ margin: 0;
+}
+
+#reciprocity-results-1{
+  width: 500px;
+  height: 200px;
+  margin-left: -330px;
+  padding-bottom: 60px;
+  padding-left: 40px;
+}
+
+#reciprocity-results-2{
+  height: 200px;
+  width: 680px;
+  margin-left: 225px;
+  margin-top: -40px;
+  text-align: right;
+  padding-left: 300px;
+  padding-right: 50px;
+}
+
+
+#reciprocity-results-3{
+  width: 250px;
+  height: 450px;
+  margin-top: -225px;
+  margin-left: -140px;
+  padding-top: 230px;
+  padding-right: 30px;
+  padding-left: 40px
+}
+
+#white-box{
+  z-index: 10;
+  margin-top: -620px;
+  width: 1000px;
+  height: 670px;
+  border: 1px solid white;
+}
+

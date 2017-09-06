@@ -1,0 +1,85 @@
+<html>
+<head>
+  <!-- <meta http-equiv="refresh" content="5" > -->
+  <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+  <link href="stylesheets/background.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="javascripts/application.js" type="text/javascript"></script>
+  <script src="javascripts/background.js" type="text/javascript"></script>
+</head>
+<body>
+
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="filter">
+      </div>
+      <video autoplay loop class="fillWidth">
+
+        <source src="/videos/<%= @weather.background_video %>"   type="video/mp4" />
+
+      </video>
+    </div>
+  </div>
+
+<div><a href="/"><img src="../images/back-arrow.png" alt="" class="home-link"></a></div>
+  <div class="form-background">
+
+    <form class="city-form">
+      <input type="text" name="city" placeholder="Where are you?" class="city-input" required=true autofocus=true>
+      <input type="text" name="film-speed" placeholder="What's your film speed?" class="city-input" id="film-speed-box" required=true autofocus=true>
+      <input type="submit" class="btn-city">
+    </form>
+  </div>
+
+  <div class="all-search-results">
+    <div id="header-city">
+      <h1>
+        <%= @weather.city.upcase %>
+      </h1>
+    </div>
+
+    <div id="results">
+      <h1 class="weather-conditions">
+        Current local time is  <%= @weather.local_time.strftime("%H:%M")%>
+        <br>
+        Sunrise <%= @weather.sunrise.strftime("%H:%M") %> //
+          Sunset <%= @weather.sunset.strftime("%H:%M")  %>
+      </h1>
+
+
+
+      <h1 class="weather-conditions">
+        <%= @weather.current_weather.capitalize %>
+      </h1>
+
+      <div class="weather-conditions">
+
+      <% if @weather.sunset.to_time >= @weather.local_time && @weather.local_time >= @weather.sunrise.to_time %>
+        <% if params[:"film-speed"] != nil %>
+        <h1>
+          <%=  @weather.calculated_aperture %>
+          <br>
+          <%= @low_sun_correction %>
+        </h1>
+
+
+        <h1>
+          Shutter speed  <%= @weather.exposure_time %>
+        </h1>
+        <% else %>
+        <h1>
+          Please enter film speed
+        </h1>
+        <% end %>
+        <% else %>
+        <h1> It's too dark, you're on your own</h1>
+
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
