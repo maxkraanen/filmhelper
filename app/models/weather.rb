@@ -8,7 +8,7 @@ class Weather
     @current_weather = @api_url["weather"][0]["description"]
 
     Timezone::Lookup.config(:google) do |c|
-      c.api_key = 'AIzaSyCxr4Ol5qHxmBWdf_mx0vT5g8MkFI1Tjkk'
+      c.api_key = GOOGLE_KEY
     end
 
     @timezone = Timezone.lookup(@api_url["coord"]["lat"], @api_url["coord"]["lon"])
