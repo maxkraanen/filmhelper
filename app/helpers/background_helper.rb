@@ -23,7 +23,7 @@ class BackgroundHelper
         "fewclouds.mp4"
       when "scattered clouds", "broken clouds"
         "heavyclouds.mp4"
-      when @background_video.include?("rain")
+      when "light intensity shower rain", "heavy intensity shower rain"
        "rain.mp4"
       when "mist", "haze"
        "fog.mp4"

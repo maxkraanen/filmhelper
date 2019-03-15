@@ -11,10 +11,3 @@ class Api
 
 end
 
-# google_api_key = AIzaSyCxr4Ol5qHxmBWdf_mx0vT5g8MkFI1Tjkk
-
-
-# 9f540e1940bd34431a9801e570826e54
-
-# api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9f540e1940bd34431a9801e570826e54
-

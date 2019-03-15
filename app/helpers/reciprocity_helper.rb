@@ -13,6 +13,8 @@ class ReciprocityHelper
       hp5_reciprocity
     when "Fuji Velvia 100"
       velvia_reciprocity
+    when "Kodak Tri-X 320/400"
+      trix_reciprocity
     end
   end
 
@@ -29,26 +31,63 @@ class ReciprocityHelper
 
   def hp5_reciprocity
     if @time < 5
-      @reciprocity_correction = (@time * 1.4).round(1)
+     (@time * 1.4).round(1)
     elsif @time < 120
-      @reciprocity_correction = (0.105*@time**2 + 2.007 * @time + 0.821).to_i
+     (0.105*@time**2 + 2.007 * @time + 0.821).to_i
     else
-      @reciprocity_correction = @time * 9
+     @time * 9
     end
   end
 
   def velvia_reciprocity
     case @time
     when  0..60
-      @reciprocity_correction = @time
+       @time
     when  61..180
-      @reciprocity_correction = @time * 4/3
+       @time * 4/3
     when 181..300
-      @reciprocity_correction = @time * 1.5
+       @time * 1.5
     when 301..600
-      @reciprocity_correction = @time * 5/3
+       @time * 5/3
     else
-      @reciprocity_correction = @time * 2
+       @time * 2
+    end
+  end
+
+  def trix_reciprocity
+    case @time
+    when 1
+      2
+    when 2
+      5
+    when 3
+      10
+    when 4
+      15
+    when 5..9
+      @time * 4.5
+    when 10..14
+      @time * 5
+    when 15..19
+      @time * 6.33
+    when 20..29
+      @time * 6.5
+    when 30..39
+      @time * 7
+    when 40..59
+      @time * 7.5
+    when 60..89
+      @time * 9
+    when 90..179
+      @time * 11.66
+    when 180..599
+      @time * 10
+    when 600..899
+      @time * 12
+    when 900..1199
+      @time * 13.33
+    else
+      @time * 12
     end
   end
 
